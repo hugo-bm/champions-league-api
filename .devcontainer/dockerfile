@@ -1,0 +1,5 @@
+# Exemplo de Dockerfile para Node.js Dev Container
+FROM mcr.microsoft.com/devcontainers/typescript-node:22
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+WORKDIR /workspace
+

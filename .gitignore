@@ -125,6 +125,13 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+
+# VS Code
+.vscode/
+
+# Testing
+coverage/
+
 # yarn v3
 .pnp.*
 .yarn/*

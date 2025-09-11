@@ -1,0 +1,23 @@
+{
+    "name": "champions-league-api - Node.js Dev",
+    "build": {
+        "dockerfile": "./dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-vscode.vscode-typescript-next",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "postCreateCommand": "npm install",
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+      ],
+    "remoteUser": "root"
+}

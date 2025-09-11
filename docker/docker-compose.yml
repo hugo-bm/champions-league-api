@@ -1,0 +1,14 @@
+# version 3.8
+
+# This configuration script defines and manages Docker
+# applications. This allows you to create an isolated
+# and controlled environment to experiment with the application,
+# as outlined in the README.md file.
+
+services:
+    web-api:
+        build:
+            context: ../
+            dockerfile: ./docker/dockerfile
+        container_name: champions-api
+        command: ['tail', '-f', '/dev/null']

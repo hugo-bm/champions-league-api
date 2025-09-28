@@ -85,7 +85,7 @@ docker exec -it champions-api bash
 docker compose -f 'docker/docker-compose.yml' down
 ```
 
-To run the development environment, use the tutorials presented at: [https://code.visualstudio.com/docs/devcontainers/containers](Developing inside a Container)
+To run the development environment, use the tutorials presented at: [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
 ---
 # Status (🚧 Work in Progress)

@@ -6,6 +6,8 @@
 
 This project is based on the "Recreating the Champions League API with Node.js and Express" project from the DIO course. This project aims to build an API with comprehensive soccer information, initially using information from the Champions League. The API provides integration with detailed information about teams, players, matches, and standings, ideal for platforms that require fast and reliable access to up-to-date statistics, supporting a fluid and responsive user interface.
 
+![C4 Context Diagram](./docs/context-diagram-c4.svg)
+
 ## Project structure
 
 ```bash
@@ -85,7 +87,7 @@ docker exec -it champions-api bash
 docker compose -f 'docker/docker-compose.yml' down
 ```
 
-To run the development environment, use the tutorials presented at: [https://code.visualstudio.com/docs/devcontainers/containers](Developing inside a Container)
+To run the development environment, use the tutorials presented at: [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
 ---
 # Status (🚧 Work in Progress)

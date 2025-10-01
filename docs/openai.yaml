@@ -1,0 +1,23 @@
+openapi: 3.0.3
+info:
+  title: API Champions League
+  description: API para consultar estatisticas atualizadas sobre equipes, jogadores, partidas e classificacoes.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api/v1
+    description: Servidor local de desenvolvimento
+paths:
+  /health:
+    get:
+      summary: Verifica o status da API
+      responses:
+        '200':
+          description: API disponível
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok

@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import path from 'node:path';
 import { promises as fs } from 'node:fs';
+import JSONDatabaseError from '../errors/JSONDatabaseError';
 
 /**
  * Singleton class that manages a lightweight JSON-based database.
@@ -45,6 +47,7 @@ export class JSONDatabase {
      * @returns A parsed object representing the full database state.
      * @throws If the JSON file cannot be parsed or read (except when missing).
      */
+
     private async readData(): Promise<Record<string, any>> {
         try {
             const DATA = await fs.readFile(this.filePath, 'utf-8');
@@ -54,7 +57,7 @@ export class JSONDatabase {
                 await fs.writeFile(this.filePath, '', 'utf-8');
                 return {};
             }
-            throw error;
+            throw new JSONDatabaseError((error as Error).message,"r");
         }
     }
 
@@ -63,11 +66,12 @@ export class JSONDatabase {
      *
      * @param data - The entire database object to be persisted
      */
+
     private async writeData(data: Record<string, any>): Promise<void> {
         try {
             await fs.writeFile(this.filePath, JSON.stringify(data, null, 2));
         } catch (error) {
-            throw error;
+            throw new JSONDatabaseError((error as Error).message,"w");
         }
     }
 

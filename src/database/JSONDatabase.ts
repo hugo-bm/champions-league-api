@@ -52,9 +52,9 @@ export class JSONDatabase {
         try {
             const DATA = await fs.readFile(this.filePath, 'utf-8');
             return JSON.parse(DATA);
-        } catch (error) {
-            if (error === 'ENOENT') {
-                await fs.writeFile(this.filePath, '', 'utf-8');
+        } catch (error: any) {
+            if (error.code === 'ENOENT') {
+                await fs.writeFile(this.filePath, '{}', 'utf-8');
                 return {};
             }
             throw new JSONDatabaseError((error as Error).message,"r");

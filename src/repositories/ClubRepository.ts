@@ -3,18 +3,19 @@ import { IClubRepository } from "./IClubRepository";
 import { JSONBaseRepository } from "./JSONBaseRepository";
 
 
-export class ClubRepository extends JSONBaseRepository<Club> implements IClubRepository {
+export class ClubRepository implements IClubRepository {
+    private baseRepository: JSONBaseRepository<Club>;
     constructor(){
-        super("clubs");
+        this.baseRepository = new JSONBaseRepository<Club>("clubs");
     }
     async findAll(): Promise<Club[]> {
-        return await this.findAll();
+        return await this.baseRepository.findAll();
     }
     async findById(id: number): Promise<Club | null> {
-        return await this.findBy("id", id);
+        return await this.baseRepository.findBy("id", id);
     }
     async create(club: Club): Promise<Club> {
-        this.insert(club);
+        this.baseRepository.insert(club);
         return club;
     }
         

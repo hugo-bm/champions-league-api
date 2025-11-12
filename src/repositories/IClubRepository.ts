@@ -14,11 +14,11 @@ import {Club} from '../models/Club';
  * or in-memory storage. * 
  */
 export interface IClubRepository {
-    
+
     /** 
      * Retrieves a list of Club entity.
      * 
-     * @param id - The uniquer identifier of the club.
+     * 
      * @return A promise resolved to a list of club-type entities, or an empty list if none was found.
      */
     findAll(): Promise<Club[]>;

@@ -21,3 +21,52 @@ paths:
                   status:
                     type: string
                     example: ok
+/clubs:
+    get:
+      summary: Obtem a lista de clubes
+      responses:
+        '200':
+          description: Retorna um array contendo as informações sobre os clubs cadastrados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    example: 1
+                  name:
+                    type: string
+                    example: Liverpool
+                  country:
+                    type: string
+                    example: England
+/clubs/{clubId}:
+    get:
+      summary: Obter club por ID
+      parameters:
+        - name: clubID
+          in: path
+          descritpion: O Identificador numerico do club
+          requiured: true
+          schema:
+            type: integer
+            format: int64
+            example: 12
+      responses:
+        '200':
+          description: Operação bem sucedida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    example: 1
+                  name:
+                    type: string
+                    example: Liverpool
+                  country:
+                    type: string
+                    example: England

@@ -102,7 +102,6 @@ export function createMockFs(
             }
 
             if (faults.corruptWrite && Math.random() < 0.3) {
-                console.log("corrupted: "+ data.toString())
                 mockFs._fileState = data.toString().slice(0, -5); // corrompe final
             } else {
                 mockFs._fileState = data.toString();

@@ -83,11 +83,8 @@ export class ClubController {
     async getById(req: Request, res: Response) {
         const reqID = req.params.id;
 
-        if (reqID === undefined) {
-            throw new HttpError(400, 'ID information is required');
-        }
-        const id = parseInt(reqID);
-        if (!isNaN(id) && !isFinite(Number(reqID))) {
+        const id = parseInt(reqID!);
+        if (isNaN(id) && !isFinite(Number(reqID)) || id < 0) {
             throw new HttpError(400, 'ID information is not valid');
         }
 

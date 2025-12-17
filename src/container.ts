@@ -10,7 +10,7 @@ service, and controller layers, connects their dependencies, and builds the fina
 import { Response, Router } from "express";
 import { ClubController } from "./controllers/ClubController";
 import { ClubRepository } from "./repositories/ClubRepository";
-import { ClubService } from "./services/ClubService.";
+import { ClubService } from "./services/ClubService";
 import CreateClubRouter from "./routes/club.routes";
 
 /**

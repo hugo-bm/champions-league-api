@@ -121,7 +121,7 @@ export class JSONDatabase {
         // Added the new task to queue and wait for completion
         const RESULT = this.queue.then(() => task());
 
-        this.queue = (RESULT as Promise<void>).finally(() => undefined);
+        this.queue = (RESULT as Promise<void>).catch(() => undefined);
 
         return RESULT;
     }
@@ -189,6 +189,7 @@ export class JSONDatabase {
             this.ensureCollection(DB, name);
             DB[name].data.push(item);
             DB[name].count += 1;
+            await this.writeData(DB);
         });
     }
 
